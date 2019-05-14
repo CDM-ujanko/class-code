@@ -1,41 +1,33 @@
-const templateElement = document.getElementById("entry-template");
+let students = [
+  {
+    id: 007,
+    name: 'Bob',
+    grade: 'F'
+  }, {
+    id: 12873,
+    name: 'John Snow',
+    grade: 'F-'
+  }, {
+    id: 1235,
+    name: 'Ned',
+    grade: 'dead'
+  },
+]
 
-function render(context) {
+const studentsEl = document.querySelector('.students');
+
+let newHtml = '';
+
+students.forEach(function(el, i) {
   let template = `
-    <div class="entry">
-      <h1>{{title}}</h1>
-      <div class="body">
-        {{body}}
-      </div>
+  <div class="student">
+    <h2>ID:${el.id}</h2>
+    <h2>Name:${el.name}</h2>
+    <h2>Grade:${el.grade}</h2>
+  </div>`
 
-      <ul>
-      {{#each lines}}
-        <li>{{this}}</li>
-      {{/each}}
-      </ul>
-    </div>
-`;
+  newHtml += template;
+});
 
-  let compiled = Handlebars.compile(template);
-  templateElement.innerHTML = compiled(context);
-}
-
-let context = {
-  title: 'My New Post',
-  body: 'This is my first post!',
-  lines: ['one', 'two']
-};
-
-function addItem(event) {
-  const input = document.querySelector('.text');
-  console.log('adding', input.value);
-  context.lines.push(input.value);
-  console.log(context);
-  render(context);
-}
-
-render(context);
-const btn = document.querySelector('.add');
-console.log(btn);
-btn.addEventListener('click', addItem);
+studentsEl.innerHTML = newHtml;
 

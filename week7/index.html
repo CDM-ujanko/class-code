@@ -7,14 +7,32 @@
 </head>
 <body>
 
-  <div id="entry-template"></div>
+  <!-- <div id="template">
+    {{#each students}}
+    <div class="student">
+      <h2>ID:{{id}}</h2>
+      <h2>Name:{{name}}</h2>
+      <h2>Grade:{{grade}}</h2>
+    </div>
+    {{/each}}
+  </div> -->
 
-  <input class="text" type="text"/>
+  <div class="todo">
+    {{name}}
+    <ul>
+    {{#each items}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+  </div>
+  <input class="item" type="text"/>
   <button class="add">Add</button>
+
+   <!-- <div class="students"></div> -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.js"></script>
-  <script src="index.js"></script>
+  <script src="index-2.js"></script>
 
 </body>
 </html>
